@@ -1,0 +1,420 @@
+/*-------------- Reset CSS----------- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+body{
+    background: url("/static/img/bg1.jpeg") no-repeat center /cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+#app{
+    width: 90%;
+    height: 90%;
+    background-color: rgba(183, 198, 211, 0.2);
+    margin: auto;
+    position: absolute;
+    inset: 0;
+}
+/* -----------------------------CSS cho phần Header (phần đầu trang web) -----------------------------------*/
+#header{
+    width: 100%;
+    position: absolute;
+    height: 70px;
+    background-color: rgba(4, 68, 124, 0.982);
+    line-height: 70px;
+}
+#header h2{
+    padding: 0 20px;
+    color: whitesmoke;
+}
+/* -----------------------------CSS cho phần Main (phần thân trang web) -----------------------------------*/
+#main{
+    margin-top: 70px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    height: 90%;
+}
+.aside{
+    width: 15%;
+    height: 100%;
+    background-color: aliceblue;
+    padding: 1rem;
+    padding-right: 0;
+    background-image: linear-gradient(#0e2163, #2a0435);
+    opacity: 0.9;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.aside h2{
+    color: #93c5fd;
+}
+.aside ul{
+    margin: auto;
+}
+.aside ul li{
+    padding: 8px;
+}
+.aside ul li a{
+    color: white;
+
+}
+.section{
+    width: 85%;
+    height: 100%;
+    background-color: rgb(255, 255, 255,0.4);
+    padding: 20px;
+    overflow: auto;
+}
+.section::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.section::-webkit-scrollbar-thumb {
+    background-color: green;
+}
+
+.section::-webkit-scrollbar-track {
+    background-color: lightgray;
+}
+
+/* ------------------------------Template Table----------------------------------- */
+.main-table h2{
+    color: #0e2163;
+}
+.main-table .table {
+    width: 100%;
+    border-collapse: collapse;
+    /*table-layout: fixed;*/
+}
+.main-table .table thead th{
+    background-color: rgba(4, 68, 124, 0.982);
+    border: 2px solid #dcdcdc;
+    padding: 10px;
+    color: yellow;
+}
+.main-table .table tbody td {
+    padding: 6px;
+    border: 2px solid #dcdcdc;
+    text-align: center;
+}
+.main-table .table tbody tr:nth-child(odd){
+    background-color: #e2e8f0;
+}
+.main-table .table tbody tr:nth-child(even){
+    background-color: #f8fafc;
+}
+.main-table .table tbody tr:hover{
+    background-color: #bbf7d0;
+}
+/* -------------------------------Template Form---------------------------------- */
+.main-form h2{
+    text-align: center;
+    color: #0e2163;
+    line-height: 1.8;
+}
+.main-form .form{
+    margin: 0 auto;
+    padding: 10px 0;
+    width: 50%;
+    text-align: center;
+    box-shadow: 2px 2px 2px #111;
+    background-color: rgb(147, 197, 253,0.5);
+    border-top-right-radius: 20px;
+}
+.main-form .form label{
+    text-align: start;
+}
+.main-form .input-q1 {
+    width: 50%;
+    padding: 10px;
+    border: 2px solid #787878;
+    margin-top: 10px;
+    border-radius: 5px;
+    color: black;
+    outline: none;
+}
+.main-form select{
+    width: 50%;
+    padding: 10px;
+    border: 2px solid #787878;
+    margin-top: 10px;
+    border-radius: 5px;
+    color: black;
+    outline: none;
+}
+.main-form .input-q1:focus, .main-form select:focus{
+    border-color: #43ee00;
+    box-shadow: 0 0 0 0.2rem rgba(38, 255, 0, 0.25);
+}
+.main-form .input-q2 {
+    margin-top: 1rem;
+    padding: 10px 12.5px;
+    outline: 2px solid #00a6fb;
+    outline-offset: 3px;
+    background-color: #d6f1ff;
+    transition: all 0.2s ease;
+    width: 50%;
+    border: 2px solid #00ffea;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    color: #555;
+}
+
+.main-form .input-q2:hover {
+    background-color: #fff;
+}
+
+.main-form .input-q2:focus {
+    outline-offset: -6px;
+    background-color: #d6f1ff;
+}
+.error{
+    width: 50%;
+    margin: auto;
+    text-align: left;
+}
+.error small{
+    color: red;
+}
+.select-q1{
+    width: 120px;
+    padding: 9px;
+    border-radius: 5px;
+}
+.main-form .form .submit{
+    padding: 10px;
+    margin: 16px 0 10px;
+    width: 50%;
+}
+.submit {
+    border-radius: .25rem;
+    text-transform: uppercase;
+    font-style: normal;
+    padding-left: 25px;
+    padding-right: 25px;
+    /*margin: 14px 0;*/
+    color: #fff;
+    -webkit-clip-path: polygon(0 0,0 0,100% 0,100% 0,100% calc(100% - 15px),calc(100% - 15px) 100%,15px 100%,0 100%);
+    clip-path: polygon(0 0,0 0,100% 0,100% 0,100% calc(100% - 15px),calc(100% - 15px) 100%,15px 100%,0 100%);
+    height: 40px;
+    font-size: 0.7rem;
+    line-height: 14px;
+    letter-spacing: 1.2px;
+    transition: .2s .1s;
+    background-image: linear-gradient(90deg,#1c1c1c,#6220fb);
+    border: 0 solid;
+    overflow: hidden;
+    font-weight: bold;
+}
+.submit:hover {
+    cursor: pointer;
+    background: rgb(9,9,121);
+    background: linear-gradient(90deg, rgba(9,9,121,1) 1%, rgba(0,212,255,1) 23%, rgba(2,0,36,1) 81%, rgba(5,97,179,1) 99%);
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+/* -------------------------------Button--------------------------- */
+.button-add{
+    background-color: #43ee00;
+}
+.button-edit, .button-delete{
+    background-color: transparent;
+    /* padding: 4px; */
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 4px;
+    margin: 4px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.button-search{
+    background-color: #a1a1aa;
+}
+.button-add, .button-search{
+    padding: 10px 14px;
+    border: none;
+    border-radius: 4px;
+    margin: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    color: blue;
+}
+.button-add:hover,
+.button-edit:hover,
+.button-delete:hover,
+.button-search:hover {
+    box-shadow: 3px 3px 3px #94a3b8;
+    transform: scale(1.1);
+}
+
+.icon-size{
+    width: 28px;
+    height: 28px;
+}
+
+
+/* Modal trang web xóa */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 4px;
+}
+.modal-content p{
+    font-size: 1.2rem;
+}
+.button-close{
+    border: none;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 1rem 6px 6px;
+}
+.button-delconfirm{
+    background-color: orangered;
+    border: none;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 6px;
+}
+.back{
+    float: right;
+}
+.back a{
+    color: blue;
+    font-size: 1.2rem;
+}
+
+/*Phân trang*/
+.pagination button {
+    margin: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.pagination button.selected {
+    background-color: #007bff;
+    color: #fff;
+}
+/*Modal thông báo thành công*/
+.modal-alert{
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: fixed;
+    inset: 0;
+    /*display: flex;*/
+    justify-content: center;
+    align-items: center;
+    animation: fadeOut 5s ease-in-out forwards;
+}
+.modal-content-alert{
+    width: 40%;
+    height: auto;
+    background-color: whitesmoke;
+    position: absolute;
+    margin: auto;
+    min-height: 100px;
+    border-radius: 10px;
+    text-align: center;
+    animation: 1s top;
+    padding: 8px;
+    border: 4px solid #43ee00;
+}
+.modal-content-alert .tick{
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+    color: green;
+    border: 2px solid green;
+    border-radius: 50%;
+    margin: 10px auto;
+}
+@keyframes top {
+    from{
+        transform: translateY(50vh);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+/* -----------------------------CSS cho phần Footer (phần cuối trang web) ---------------------------------*/
+#footer{
+
+}
+
+/* ------------------------------------------Responsive -------------------------------------------*/
+/* @media screen {  */
+/* Được dùng khi không ăn responsive */
+/* } */
+
+/* Màn hình Desktop cực lớn */
+@media screen and (min-width: 1920px){
+
+}
+/* Màn hình Desktop lớn */
+@media screen and (max-width: 1492px){
+
+}
+/* Màn hình Desktop */
+@media screen and (max-width: 1200px){
+
+}
+/* Màn hình Tablet lớn */
+@media screen and (max-width: 992px){
+    .aside h2{
+        font-size: 1.2rem;
+    }
+}
+/* Màn hình Tablet */
+@media screen and (max-width: 768px) {
+    .aside h2{
+        font-size: 1rem;
+    }
+}
+/* Màn hình Mobile */
+@media screen and (max-width : 534px){
+    .aside h2{
+        font-size: 0.8rem;
+    }
+    .aside ul li a{
+        font-size: 0.8rem;
+    }
+}
+/* Màn hình Mobile cực nhỏ */
+@media screen and (max-width : 320px){
+
+}
