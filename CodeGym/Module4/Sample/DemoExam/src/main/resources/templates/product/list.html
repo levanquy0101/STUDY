@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phần mềm quản lý</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <header id="header">
+        <h2>Phần mềm quản lý</h2>
+    </header>
+    <main id="main">
+        <aside class="aside">
+            <h2>Dashboards</h2>
+            <ul>
+<!--                <li><a href="/blogs/">Default</a></li>-->
+<!--                <li><a href="/blogs/category">Danh sách Category</a></li>-->
+<!--                <li><a href="/blogs/list">Danh sách bài viết</a></li>-->
+<!--                <li><a href="">Other</a></li>-->
+            </ul>
+        </aside>
+        <section class="section">
+            <div class="section-top">
+                <h1>Thông tin</h1>
+                <form action="/questions" class="main-form">
+                    <input type="text" placeholder="Tìm kiếm" class="input-q1" name="nameSearch" th:value="${nameSearch}">
+                    <button type="submit" class="button-search">Tìm kiếm</button>
+                </form>
+                <button class="button-add" onclick="window.location.href='/questions/create'">Thêm mới</button>
+                <select name="" class="select-q1">
+                    <option value="" style="font-weight: bold" selected disabled>Sắp xếp theo</option>
+                    <option value="">Tên A-Z</option>
+                    <option value="">Tên Z-A</option>
+                </select>
+            </div>
+            <hr>
+            <div class="main-table">
+                <table class="table" >
+                    <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Tiêu đề</th>
+                        <th>Loại câu hỏi</th>
+                        <th>Ngày tạo</th>
+                        <th>Trạng thái</th>
+                        <th>Tùy chỉnh</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="question,iter : ${questionContentList}">
+                        <td th:text="${iter.count}"></td>
+                        <td th:text="${question.title}"></td>
+                        <td th:text="${question.questionType.name}"></td>
+                        <td th:text="${#temporals.format(question.dateCreate, 'dd/MM/yyyy')}"></td>
+                        <td th:text="${question.status}"></td>
+                        <td>
+                            <div>
+                                <button th:attr="data-question-id=${question.id}" class="button-view">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28px" class="ionicon" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
+                                </button>
+                                <a th:href="@{/questions/{id}/update (id = ${question.id})}" class="button-edit">
+                                    <img th:src="@{/image/edit.png}" alt="" class="icon-size">
+                                </a>
+                                <button class="button-delete" th:attr="onclick=|openModal('${question.getId()}')|" ><img th:src="@{/image/delete.png}" alt="" class="icon-size"></button>
+                                <div th:id="'myModal' + ${question.id}" class="modal">
+                                    <div class="modal-content">
+                                        <lable>Bạn thật sự muốn xóa câu hỏi này: <p th:text="${question.title}"></p></lable>
+                                        <button id="closeModalBtn${product.id}" class="button-close" th:attr="onclick=|closeModal('${question.getId()}')|">Trở lại</button>
+                                        <a th:href="@{/questions/{id}/delete (id = ${question.id})}" class="button-delconfirm">Xác nhận</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="noDataMessage" style="display: none;">
+                <p style="text-align: center;padding: 10px">Không tìm thấy dữ liệu nào!</p>
+            </div>
+<!--            <div id="pagination" class="pagination"></div>-->
+            <div id="nav-page" class="nav-page">
+            <a th:if="${questionContentList != null && questionContentList.hasPrevious()}" th:href="@{/questions(page=${questionContentList.number - 1}, nameSearch=${nameSearch})}">Trang trước</a>
+            <span th:each="pageNo: ${#numbers.sequence(0, questionContentList.totalPages - 1)}">
+             <a th:href="@{/questions(page=${pageNo}, nameSearch=${nameSearch})}" th:text="${pageNo}"></a>
+            </span>
+            <a th:if="${questionContentList != null && questionContentList.hasNext()}" th:href="@{/questions(page=${questionContentList.number + 1}, nameSearch=${nameSearch})}">Trang sau</a>
+            </div>
+
+            <div class="modal-alert" id="modal-alert">
+                <div class="modal-content-alert">
+                    <h2>Đã cập nhật lại dữ liệu</h2>
+                    <p class="tick">&#10003;</p>
+                </div>
+            </div>
+
+<!--            Modal chi tiết-->
+            <div class="modal-view" id="modalContent">
+                <div class="modal-view-alert">
+                    <h2>Chi tiết câu hỏi</h2>
+                    <p id="questionTitle"></p>
+                    <p id="questionType"></p>
+                    <p id="dateCreated"></p>
+                    <p id="status"></p>
+                    <button class="button-close" onclick="closeDetail()">
+                        Đóng
+                    </button>
+                </div>
+            </div>
+
+        </section>
+    </main>
+    <div th:if="${mess}">
+        <input type="hidden" id="mess" th:value="${mess}">
+    </div>
+    <footer id="footer">
+
+    </footer>
+</div>
+<script th:src="@{/js/app.js}"></script>
+<script>
+
+    // Kiểm tra xem phần tử có tồn tại không trước khi truy cập thuộc tính value
+    let messElement = document.getElementById('mess');
+    if (messElement !== null) {
+        let messValue = messElement.value;
+        if (messValue == 1) {
+            let displayModal = document.getElementById("modal-alert");
+            if (displayModal !== null) {
+                displayModal.style.display = "flex";
+            } else {
+                console.error("Phần tử modal-alert không tồn tại.");
+            }
+        }
+    } else {
+        console.error("Phần tử mess không tồn tại.");
+    }
+
+    $(document).ready(function() {
+        $('.button-view').click(function(e) {
+            e.preventDefault();
+            var questionId = $(this).data('question-id');
+            document.getElementById("modalContent").style.display = "flex";
+            // Gửi yêu cầu AJAX GET
+            $.ajax({
+                type: 'GET',
+                url: 'http://localhost:8080/api/questions/' + questionId,
+                success: function(data) {
+                    console.log(data);
+                    $('#questionTitle').text(data.title);
+                    $('#questionType').text(data.questionType.name);
+                    $('#dateCreated').text(data.dateCreate);
+                    $('#status').text(data.status);
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+        });
+    });
+
+function closeDetail(){
+    document.getElementById("modalContent").style.display = "none";
+}
+</script>
+</body>
+</html>

@@ -11,7 +11,8 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 
-@WebServlet(name = "PhongTroServlet", value = "/PhongTroServlet")
+@WebServlet(name = "PhongTroServlet", value = "/" +
+        "")
 public class PhongTroServlet extends HttpServlet {
     ImlPhongTroService productService = new ImlPhongTroService();
     @Override
