@@ -1,0 +1,35 @@
+Khai báo thư viện jakarta.servlet-api phiên bản 5.0.0 :
+    compileOnly('jakarta.servlet:jakarta.servlet-api:5.0.0')
+
+Khai báo thư viện JSTL 1.2 :
+    // https://mvnrepository.com/artifact/javax.servlet/jstl
+    implementation group: 'javax.servlet', name: 'jstl', version: '1.2
+
+Khai báo thư viện MySQL (kết nối Java với cơ sở dữ liệu MySQL) :
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.23'
+
+Khai báo sử dụng sử dụng Spring MVC framework :
+    implementation group: 'org.springframework', name: 'spring-webmvc', version: '4.3.17.RELEASE'
+
+
+
+
+
+
+Tổng thể dependency với Servlet :
+dependencies {
+    compileOnly('jakarta.servlet:jakarta.servlet-api:5.0.0')
+    implementation group: 'javax.servlet', name: 'jstl', version: '1.2'
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.23'
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+}
+
+Tổng thể dependency với Framework :
+dependencies {
+    implementation group: 'org.springframework', name: 'spring-webmvc', version: '4.3.17.RELEASE'
+    implementation group: 'javax.servlet', name: 'jstl', version: '1.2'
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.23'
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+}

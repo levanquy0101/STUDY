@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sửa dữ liệu</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div id="app">
+    <header id="header">
+        <h2>Phần mềm quản lý</h2>
+    </header>
+    <main id="main">
+        <aside class="aside">
+            <h2>Dashboards</h2>
+            <ul>
+                <li><a href="/product">Default</a></li>
+                <li><a href="">Other</a></li>
+            </ul>
+        </aside>
+        <section class="section">
+            <div class="main-form">
+                <h2>Sửa lại dữ liệu</h2>
+                <form action="/product/update" class="form" method="post" th:object="${product}">
+                    <input type="hidden" class="input-q1" placeholder="ID Update"  th:field="*{id}">
+                    <input type="text" class="input-q1" placeholder="Nhập mã sản phẩm"  th:field="*{codeName}" readonly>
+                    <small th:if="${#fields.hasErrors('codeName')}" th:errors="*{codeName}"></small>
+
+                    <input type="text" class="input-q1" placeholder="Nhập tên sản phẩm"  th:field="*{name}">
+                    <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></small>
+
+                    <select name="" id="" th:field="*{category}" class="input-q1">
+                        <option th:each="category: ${category}" th:value="${category.id}" th:text="${category.typeName}"></option>
+                    </select>
+                    <input type="text" class="input-q1" placeholder="Nhập giá"  th:field="*{price}">
+                    <input type="date" class="input-q1" placeholder="Nhập ngày sản xuất" name="dateSx" th:value="*{dateSx}">
+                    <small th:if="${#fields.hasErrors('dateSx')}" th:errors="*{dateSx}"></small>
+
+                    <input type="date" class="input-q1" placeholder="Nhập hết hạn" name="dateHh" th:value="*{dateHh}">
+                    <small th:if="${#fields.hasErrors('endDateAfterStartDate')}" th:errors="*{endDateAfterStartDate}"></small>
+
+                    <input type="text" class="input-q1" placeholder="Nhập ghi chú"  th:field="*{about}">
+                    <button type="submit" class="submit">Sửa dữ liệu</button>
+                </form>
+            </div>
+            <div class="back">
+                <a href="/product">&larr; Trở về danh sách</a>
+            </div>
+        </section>
+    </main>
+    <footer id="footer">
+
+    </footer>
+</div>
+</body>
+</html>

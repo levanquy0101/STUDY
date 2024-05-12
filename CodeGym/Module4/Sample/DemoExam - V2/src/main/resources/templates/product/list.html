@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phần mềm quản lý</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div id="app">
+    <header id="header">
+        <h2>Phần mềm quản lý</h2>
+    </header>
+    <main id="main">
+        <aside class="aside">
+            <h2>Dashboards</h2>
+            <ul>
+            </ul>
+        </aside>
+        <section class="section">
+            <div class="section-top">
+                <h1>Thông tin</h1>
+                <form action="/product" class="main-form">
+                    <input type="text" placeholder="Tìm kiếm" class="input-q1" name="nameSearch" th:value="${nameSearch}">
+                    <button type="submit" class="button-search">Tìm kiếm</button>
+                </form>
+                <button class="button-add" onclick="window.location.href='/product/create'">Thêm mới</button>
+                <select name="" class="select-q1">
+                    <option value="" style="font-weight: bold" selected disabled>Sắp xếp theo</option>
+                    <option value="">Tên A-Z</option>
+                    <option value="">Tên Z-A</option>
+                </select>
+            </div>
+            <hr>
+            <div class="main-table">
+                <table class="table" >
+                    <thead>
+                    <tr>
+                        <th>Item 1</th>
+                        <th>Item 2</th>
+                        <th>Item 3</th>
+                        <th>Item 4</th>
+                        <th>Item 5</th>
+                        <th>Item 6</th>
+                        <th>Item 7</th>
+                        <th>Item 8</th>
+                        <th>Item 9</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="product : ${productList}">
+                        <td th:text="${product.id}"></td>
+                        <td th:text="${product.codeName}"></td>
+                        <td th:text="${product.name}"></td>
+                        <td th:text="${product.category.typeName}"></td>
+                        <td th:text="${product.price}"></td>
+                        <td th:text="${product.dateSx}"></td>
+                        <td th:text="${product.dateHh}"></td>
+                        <td th:text="${product.about}"></td>
+                        <td>
+                            <div>
+                                <a th:href="@{/product/{id}(id = ${product.id})}" class="button-edit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28px" class="ionicon" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
+                                </a>
+                                <a th:href="@{/product/{id}/update (id = ${product.id})}" class="button-edit">
+                                    <img th:src="@{/image/edit.png}" alt="" class="icon-size">
+                                </a>
+                                <button class="button-delete" th:attr="onclick=|openModal('${product.getId()}')|" ><img th:src="@{/image/delete.png}" alt="" class="icon-size"></button>
+                                <div th:id="'myModal' + ${product.id}" class="modal">
+                                    <div class="modal-content">
+                                        <lable>Bạn thật sự muốn xóa ID: <p th:text="${product.id}"></p></lable>
+                                        <button id="closeModalBtn${product.id}" class="button-close" th:attr="onclick=|closeModal('${product.getId()}')|">Trở lại</button>
+                                        <a th:href="@{/product/{id}/delete (id = ${product.id})}" class="button-delconfirm">Xác nhận</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="noDataMessage" style="display: none;">
+                <p style="text-align: center;padding: 10px">Không tìm thấy dữ liệu nào!</p>
+            </div>
+<!--            <div id="pagination" class="pagination"></div>-->
+            <div id="nav-page" class="nav-page">
+            <a th:if="${productList != null && productList.hasPrevious()}" th:href="@{/product(page=${productList.number - 1}, nameSearch=${nameSearch})}">Trang trước</a>
+            <span th:each="pageNo: ${#numbers.sequence(0, productList.totalPages - 1)}">
+             <a th:href="@{/product(page=${pageNo}, nameSearch=${nameSearch})}" th:text="${pageNo}"></a>
+            </span>
+            <a th:if="${productList != null && productList.hasNext()}" th:href="@{/product(page=${productList.number + 1}, nameSearch=${nameSearch})}">Trang sau</a>
+            </div>
+
+            <!-- Form sửa sản phẩm (ẩn, nằm ngoài bảng) -->
+            <form id="updateForm" style="display:none;">
+                <input type="text" id="updateName">
+                <input type="number" id="updatePrice">
+                <textarea id="updateDescription"></textarea>
+                <button type="submit" id="updateSubmitBtn">Cập nhật</button>
+            </form>
+
+            <div class="modal-alert" id="modal-alert">
+                <div class="modal-content-alert">
+                    <h2>Đã cập nhật lại dữ liệu</h2>
+                    <p class="tick">&#10003;</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div th:if="${mess}">
+        <input type="hidden" id="mess" th:value="${mess}">
+    </div>
+    <footer id="footer">
+
+    </footer>
+</div>
+<script th:src="@{/js/app.js}" defer></script>
+<script>
+    let mess = document.getElementById('mess').value;
+    if (mess == 1) {
+        let displayModal = document.getElementById("modal-alert");
+        displayModal.style.display= "flex";
+    }
+</script>
+</body>
+</html>
