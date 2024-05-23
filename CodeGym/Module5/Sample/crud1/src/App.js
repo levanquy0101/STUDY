@@ -1,17 +1,19 @@
-import './App.css';
+import './App.scss';
 import { Routes, Route } from 'react-router-dom';
-import List from './components/List';
-import Create from './components/Create';
-import Update from './components/Update';
-import AddOrder from './components/AddOrder';
+import List from './pages/List';
+import Create from './pages/Create';
+import Update from './pages/Update';
+import NotFound from './pages/NotFound';
+import DataTable from './components/Demo';
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<List />} />
       <Route path="/create" element={<Create />} />
-      <Route path='/add' element={<AddOrder />} />
-      <Route path="/update" element={<Update />} />
+      <Route path="/update/:id" element={<Update />} />
+      <Route path='*' element={<NotFound />} />
+      <Route path="/demo" element={<DataTable />} />
     </Routes>
   );
 }

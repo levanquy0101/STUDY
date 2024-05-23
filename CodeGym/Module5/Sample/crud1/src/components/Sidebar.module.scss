@@ -1,0 +1,65 @@
+@property --k {
+    syntax: '<number>';
+    initial-value: 0;
+    inherits: false
+}
+.sidebar{
+    width: 18%;
+    background: linear-gradient(to bottom, #0e2163, #2d0539);
+    color: white;
+    .logo{
+        background-color: #051336;
+        padding: 16px;
+        height: 50px;
+        .text{
+            text-transform: uppercase;
+            --k: 0;
+            place-self: center;
+            background: 
+            linear-gradient(90deg, 
+            hsl(calc(var(--k)*1turn), 95%, 65%), 
+            hsl(calc(var(--k)*1turn + 90deg), 95%, 65%));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font: 900 clamp(.875em, 7.25vw, 5em) arial black, sans-serif;
+            filter: url(#f);
+            text-align: center;
+            text-transform: uppercase;
+            animation: k 4s linear infinite;
+            font-size: 1.3rem;
+            font-family: 'Black Ops One', system-ui;
+        }
+    }
+    .management{
+        padding: 16px;
+        ul{
+            margin: 16px 0;
+            li{
+                margin: 8px 0;
+                a{
+                    color: white;
+                    display: flex;
+                    align-items: center;
+                    &::before{
+                        content: "";
+                        display: inline-block;
+                        width: 6px;
+                        height: 6px;
+                        border-radius: 50%;
+                        margin-right: 6px;
+                        background-color: green;
+                    }
+                }
+            }
+        }
+
+    }
+}
+@keyframes k { to { --k: 1 } }
+
+@media screen and (max-width : 768px){
+    .sidebar{
+        display: none;
+    }
+}
