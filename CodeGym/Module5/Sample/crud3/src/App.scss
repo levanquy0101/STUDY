@@ -1,0 +1,262 @@
+/* Import font */
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  inset: 0;
+  .main{
+    flex-grow: 1;
+    background-color: #f8fafc;
+    position: relative;
+    .container{
+      padding: 16px;
+
+    }
+    .add-item{
+      text-align: center;
+      border: 1px solid green;  
+      width: 40%;
+      margin: 16px auto;
+      // border-radius: 4px;
+      h2{
+        background-color: #e0f2fe;
+        padding: 12px;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+      }
+    }
+    .form{ 
+      padding: 0 16px;
+      input,select,button{
+        display: block;
+        width: 100%;
+        padding: 8px;
+        margin: 16px 0;
+      }
+      small{
+        color: orangered;
+        display: block;
+        text-align: left;
+      }
+      button{
+        background-color: #00bd68;
+        border: none;
+        color: white;
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+
+.fillter{
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+  .item{
+    display: flex;
+    label{
+      display: flex;
+      flex-direction: column;
+
+    }
+    label+label{
+      margin-left: 8px;
+    }
+  }
+}
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+thead{
+  background-color: #e0f2fe;
+}
+td, th{
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+tr:nth-child(even){
+  background-color: #f4f4f5;
+}
+
+.not-found{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  img{
+    // width: 100%;
+    max-width: 100%;
+  }
+  a{
+    text-decoration: none;
+    color: black;
+    border: 1px solid orange;
+    border-radius: 4px;
+    padding: 6px;
+    color: orange;
+    &::before{
+      content: '‹';
+      display: inline;
+      height: 1px;
+      margin: 10px 0;
+      color: orange;
+      font-weight: bold;
+      margin-right: 4px;
+    }
+    &:hover{
+      background-color: orange;
+      color: white;
+      cursor: pointer;
+      &::before{
+        color: white;
+      }
+    }
+  }
+}
+
+
+
+// CSS cho các nút bấm:
+.btn{
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  &.add{
+    background-color: #22c55e;
+    color: white;
+  }
+  &.update{
+    color: blue;
+  }
+  &.delete{
+    color: orangered;
+    margin: 4px;
+  }
+  &.prev{
+    margin: 8px;
+  }
+  &.next{
+    margin: 8px;
+  }
+  &.search{
+    background-color: #00bd68;
+    color: white;
+  }
+  &.back{
+    margin-left: 80%;
+  }
+
+}
+
+// CSS cho Modal
+.modal-content{
+  width: 40%;
+  text-align: center;
+  border-radius: 4px;
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  animation: moveDown 0.5s linear;
+  background-color: #fef9c3;
+  .close{
+   position: absolute;
+   right: 10px;
+   top: 0; 
+   font-size: 1.4rem;
+   cursor: pointer;
+  }
+  p{
+    margin: 16px 0;
+  }
+  .cancel{
+    margin-left: 16px ;
+  }
+}
+
+
+@keyframes moveDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translate(-50%, -100%);
+  }
+}
+
+
+/* Màn hình Desktop lớn */
+@media screen and (max-width: 1492px){
+
+}
+/* Màn hình Desktop */
+@media screen and (max-width: 1200px){
+
+}
+/* Màn hình Tablet lớn */
+@media screen and (max-width: 992px){
+  .wrapper {
+    .main{
+      .container{
+        padding: 16px;
+        
+      }
+      .add-item{
+        width: 65%;
+      }
+    }
+  }
+}
+/* Màn hình Tablet */
+@media screen and (max-width: 768px) {
+  .wrapper {
+    .main{
+      .container{
+        padding: 16px;
+  
+      }
+      .add-item{
+        width: 70%;
+      }
+    }
+  }
+
+
+}
+@media screen and (max-width: 534px) {
+  .wrapper {
+    .main{
+      .container{
+        padding: 16px;
+  
+      }
+      .add-item{
+        width: 85%;
+      }
+    }
+  }
+
+
+}
+
+/* Màn hình Mobile cực nhỏ */
+@media screen and (max-width : 320px){
+
+}

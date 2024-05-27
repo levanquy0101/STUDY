@@ -179,6 +179,18 @@
         "price": 400,
         "type": "Laptop"
       }
+    },
+    {
+      "id": "3b00",
+      "buyDate": "2024-05-10",
+      "number": "229",
+      "total": "35",
+      "product": {
+        "id": "2",
+        "name": "Acer 5302",
+        "price": 400,
+        "type": "Laptop"
+      }
     }
   ],
   "products": [

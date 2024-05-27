@@ -2,8 +2,7 @@ import { useForm } from 'react-hook-form';
 import { toast } from "react-toastify";
 import * as OrderService from "../services/OrderService"
 import * as ProductService from "../services/ProductService"
-import { useNavigate } from 'react-router-dom';
-import { useParams, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
