@@ -25,7 +25,7 @@
     }
     .add-item{
       text-align: center;
-      border: 1px solid green;  
+      border: 1px solid green;
       width: 40%;
       margin: 16px auto;
       // border-radius: 4px;
@@ -36,7 +36,7 @@
         text-transform: uppercase;
       }
     }
-    .form{ 
+    .form{
       padding: 0 16px;
       input,select,button{
         display: block;
@@ -104,7 +104,6 @@ tr:nth-child(even){
   }
   a{
     text-decoration: none;
-    color: black;
     border: 1px solid orange;
     border-radius: 4px;
     padding: 6px;
@@ -165,6 +164,11 @@ tr:nth-child(even){
 }
 
 // CSS cho Modal
+.frame-modal{
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
 .modal-content{
   width: 40%;
   text-align: center;
@@ -175,13 +179,15 @@ tr:nth-child(even){
   left: 50%;
   transform: translate(-50%, -100%);
   animation: moveDown 0.5s linear;
-  background-color: #fef9c3;
+  background-color: #292524;
+  color: white;
+  box-shadow: 1px 1px 4px yellow;
   .close{
-   position: absolute;
-   right: 10px;
-   top: 0; 
-   font-size: 1.4rem;
-   cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    font-size: 1.4rem;
+    cursor: pointer;
   }
   p{
     margin: 16px 0;
@@ -216,7 +222,7 @@ tr:nth-child(even){
     .main{
       .container{
         padding: 16px;
-        
+
       }
       .add-item{
         width: 65%;
@@ -230,7 +236,7 @@ tr:nth-child(even){
     .main{
       .container{
         padding: 16px;
-  
+
       }
       .add-item{
         width: 70%;
@@ -245,7 +251,7 @@ tr:nth-child(even){
     .main{
       .container{
         padding: 16px;
-  
+
       }
       .add-item{
         width: 85%;

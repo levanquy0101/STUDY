@@ -4,10 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8890a27e-7a1d-49e5-982b-b24879588d96" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud1/src/data/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/crud1/src/data/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud1/src/pages/Create.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/crud1/src/pages/Create.jsx" afterDir="false" />
+    <list default="true" id="8890a27e-7a1d-49e5-982b-b24879588d96" name="Changes" comment="up">
+      <change afterPath="$PROJECT_DIR$/crud2/src/pages/View.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud2/src/services/ClassesService.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/crud/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/crud/src/App.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/crud/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud2/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/crud2/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud2/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/crud2/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud2/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/crud2/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud2/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/crud2/src/App.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud2/src/data/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/crud2/src/data/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud2/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/crud2/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud2/src/pages/Create.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/crud2/src/pages/Create.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud2/src/pages/List.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/crud2/src/pages/List.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud2/src/pages/NotFound.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/crud2/src/pages/NotFound.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud2/src/pages/Update.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/crud2/src/pages/Update.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud2/src/services/Service.jsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,39 +31,42 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "levanquy0101"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;levanquy0101&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/levanquy0101/STUDY.git",
-    "accountId": "ed89d838-e63d-4a2c-b3d0-20b5bc733574"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/levanquy0101/STUDY.git&quot;,
+    &quot;accountId&quot;: &quot;ed89d838-e63d-4a2c-b3d0-20b5bc733574&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 4
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2h35fWf1NYAtkByGGIYmWenmdyH" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/STUDY/CodeGym/Module5/Sample&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2024.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -66,10 +83,28 @@
       <option name="presentableId" value="Default" />
       <updated>1716810026656</updated>
       <workItem from="1716810029621" duration="897000" />
+      <workItem from="1716833410044" duration="59000" />
+      <workItem from="1716836397594" duration="22000" />
+      <workItem from="1716888834731" duration="11783000" />
+      <workItem from="1716904591826" duration="3592000" />
+      <workItem from="1716909120780" duration="3354000" />
     </task>
+    <task id="LOCAL-00001" summary="up">
+      <option name="closed" value="true" />
+      <created>1716833452826</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1716833452826</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="up" />
+    <option name="LAST_COMMIT_MESSAGE" value="up" />
   </component>
 </project>

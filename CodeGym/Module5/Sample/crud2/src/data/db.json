@@ -1,3 +1,108 @@
 {
-    
+  "students": [
+    {
+      "code": "S001",
+      "name": "Thanh Thy",
+      "age": "19",
+      "gender": "Nữ",
+      "dateNH": "2024-01-01",
+      "class": {
+        "id": "2",
+        "code": "C002",
+        "class_name": "Lập Trình Java",
+        "teacher": "Trần Văn Minh"
+      },
+      "id": "10"
+    },
+    {
+      "code": "S002",
+      "name": "Xuân Đài",
+      "age": "23",
+      "gender": "Nam",
+      "dateNH": "2024-02-01",
+      "class": {
+        "id": "1",
+        "code": "C001",
+        "class_name": "Toán Cao Cấp",
+        "teacher": "Nguyễn Xuân Tùng"
+      },
+      "id": "11"
+    },
+    {
+      "code": "S003",
+      "name": "Lê Văn Quý",
+      "age": "18",
+      "gender": "Nam",
+      "dateNH": "2024-03-01",
+      "class": {
+        "id": "1",
+        "code": "C001",
+        "class_name": "Toán Cao Cấp",
+        "teacher": "Nguyễn Xuân Tùng"
+      },
+      "id": "w2nN8Sq"
+    },
+    {
+      "code": "S004",
+      "name": "Cao Xuân Lâm",
+      "age": "21",
+      "gender": "Nam",
+      "dateNH": "2024-04-01",
+      "class": {
+        "id": "1",
+        "code": "C001",
+        "class_name": "Toán Cao Cấp",
+        "teacher": "Nguyễn Xuân Tùng"
+      },
+      "id": "qge5n93"
+    },
+    {
+      "code": "S005",
+      "name": "Lưu Bá Ôn",
+      "age": "21",
+      "gender": "Nam",
+      "dateNH": "2024-05-01",
+      "class": {
+        "id": "1",
+        "code": "C001",
+        "class_name": "Toán Cao Cấp",
+        "teacher": "Nguyễn Xuân Tùng"
+      },
+      "id": "LdswOA-"
+    },
+    {
+      "code": "S006",
+      "name": "Châu Thị Lệ",
+      "age": "22",
+      "gender": "Nữ",
+      "dateNH": "2024-05-29",
+      "class": {
+        "id": "1",
+        "code": "C001",
+        "class_name": "Toán Cao Cấp",
+        "teacher": "Nguyễn Xuân Tùng"
+      },
+      "id": "UmT0BxS"
+    }
+  ],
+  "classes": [
+    {
+      "id": "1",
+      "code": "C001",
+      "class_name": "Toán Cao Cấp",
+      "teacher": "Nguyễn Xuân Tùng"
+    },
+    {
+      "id": "2",
+      "code": "C002",
+      "class_name": "Lập Trình Java",
+      "teacher": "Trần Văn Minh"
+    },
+    {
+      "id": "3",
+      "code": "C003",
+      "class_name": "Hệ Điều Hành",
+      "teacher": "Phạm Thị Lan"
+    }
+  ]
 }
