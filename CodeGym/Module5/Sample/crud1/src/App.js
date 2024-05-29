@@ -4,8 +4,6 @@ import List from './pages/List';
 import Create from './pages/Create';
 import Update from './pages/Update';
 import NotFound from './pages/NotFound';
-import DataTable from './components/Demo';
-import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   return (
@@ -13,8 +11,7 @@ function App() {
       <Route path="/" element={<List />} />
       <Route path="/create" element={<Create />} />
       <Route path="/update/:id" element={<Update />} />
-      <Route path='*' element={<NotFoundPage />} />
-      <Route path="/demo" element={<DataTable />} />
+      <Route path='*' element={<NotFound />} />
     </Routes>
   );
 }

@@ -19,6 +19,15 @@ function List(props) {
     const [filterStartDate, setFilterStartDate] = useState("");
     const [filterEndDate, setFilterEndDate] = useState("");
 
+    useEffect(() => {
+        getAll();
+    }, [filterGender, filterStartDate, filterEndDate]);
+    
+    const getAll = async () => {
+        const data = await StudentService.getFiltered(filterGender, filterStartDate, filterEndDate);
+        console.log(data);
+        setStudents(data);
+    }
     const handleChangeDel = (item)=>{
         setDeleteStudent(item)
     }
@@ -39,15 +48,10 @@ function List(props) {
     //     setStudents(data)
     // }
 
-    useEffect(() => {
-        getAll();
-    }, [filterGender, filterStartDate, filterEndDate]);
-
-    const getAll = async () => {
-        const data = await StudentService.getFiltered(filterGender, filterStartDate, filterEndDate);
-        setStudents(data);
+    const handleUpdate = (id)=>{
+        console.log(id)
+        navigate('/update', { state: { idUpdate: id } });
     }
-
     const handleGenderChange = (e) => {
         setFilterGender(e.target.value);
     }
@@ -65,13 +69,13 @@ function List(props) {
     { header: 'Tên học viên', key: 'name', render: (row) => row.name },
     { header: 'Tuổi', key: 'age', render: (row) => row.age },
     { header: 'Giới tính', key: 'gender', render: (row) => row.gender },
-    { header: 'Ngày nhập học', key: 'gender', render: (row) => Moment(row.dateNH).format('DD/MM/YYYY') },
+    { header: 'Ngày nhập học', key: 'dateNH', render: (row) => Moment(row.dateNH).format('DD/MM/YYYY') },
     { header: 'Lớp học', key: 'class', render: (row) => row.class.code },
     { header: 'Giáo viên giảng dạy', key: 'teacher', render: (row) => row.class.teacher },
     { header: 'Hành động', key: 'action', render: (row) => (
             <div>
                 <Link to={`/view/${row.id}`}><FaRegEye size={24} color="blue" /></Link>
-                <Link to="/update" state={row} className='btn update'><FaRegEdit size={24} style={{color:"orange"}}/></Link>
+                <i onClick={() => handleUpdate(row.id)} className='btn update'><FaRegEdit size={24} style={{color:"orange"}}/></i>
                 <i onClick={() => handleChangeDel(row)}><MdDelete size={24} color="red" cursor="pointer" /></i>
             </div>
         )
@@ -87,7 +91,6 @@ function List(props) {
                     <div>
                         <Link to="/create" className='btn add'>Thêm mới</Link>
                         <h2>Danh sách</h2>
-
                         <div className='fillter'>
                             <select name="gender" value={filterGender} onChange={handleGenderChange}>
                                 <option value="">Tất cả giới tính</option>

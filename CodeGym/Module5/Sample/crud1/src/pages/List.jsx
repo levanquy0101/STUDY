@@ -14,7 +14,7 @@ function List() {
 
     const { data: orders, isLoading, refetch } = useQuery(['orders', filterParams], async () => {
         const { type, startDate, endDate } = filterParams;
-        const response = await axios.get('http://localhost:8080/orders', 
+        const response = await axios.get('http://localhost:8000/orders', 
        );
         return response.data;
     });

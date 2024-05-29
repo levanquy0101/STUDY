@@ -9,7 +9,7 @@ import * as StudentService from '../services/StudentService';
 
 function Create(props) {
     const navigate = useNavigate();
-    const {register, handleSubmit, errors} = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm()
     const [classes, setClasses] = useState([]);
 
 
@@ -44,22 +44,33 @@ function Create(props) {
                     <div className='add-item'>
                         <h2>Tạo mới</h2>
                         <form className='form' onSubmit={handleSubmit(onSubmit)}>
-                            <input {...register('code')} type="text" placeholder="Nhập mã học viên"/>
-                            <input {...register('name')} type="text" placeholder='Nhập tên học viên'/>
-                            <input {...register('age')} type="text" placeholder='Nhập tuổi'/>
+                            <input {...register('code',{required: 'Không được để trống!'})} type="text" placeholder="Nhập mã học viên"/>
+                            {errors.code && <small>{errors.code.message}</small>}
+
+                            <input {...register('name',{required: 'Không được để trống!'})} type="text" placeholder='Nhập tên học viên'/>
+                            {errors.name && <small>{errors.name.message}</small>}
+
+                            <input {...register('age',{required: 'Không được để trống!'})} type="text" placeholder='Nhập tuổi'/>
+                            {errors.age && <small>{errors.age.message}</small>}
+
                             <label htmlFor="">Giới tính:</label>
                             <input {...register('gender',{required:'Không được để trống!'})} style={{display:"inline",width:"20%"}} value='Nam' type="radio" /><span>Nam</span>
                             <input {...register('gender',{required:'Không được để trống!'})} style={{display:"inline",width:"20%"}} value='Nữ' type="radio" /><span>Nữ</span>
                             <input {...register('gender',{required:'Không được để trống!'})} style={{display:"inline",width:"20%"}} value='Khác' type="radio" /><span>Khác</span>
-                            <input {...register('dateNH')} type="date" placeholder='Nhập ngày nhập học' />
-                            <select {...register('class')} id="">
-                                <option value="">-- Lựa chọn lớp học --</option>
+                            {errors.gender && <small>{errors.gender.message}</small>}
+
+                            <input {...register('dateNH',{required:'Không được để trống!'})} type="date" placeholder='Nhập ngày nhập học' />
+                            {errors.dateNH && <small>{errors.dateNH.message}</small>}
+
+                            <select {...register('class',{required: 'Không được để trống!'})} id="">
+                                <option value="" >-- Lựa chọn lớp học --</option>
                                 {
                                     classes.map((item) =>  (
                                         <option value={JSON.stringify(item)} key={item.id}>{item.code}</option>
                                     ))
                                 }
                             </select>
+                            {errors.class && <small>{errors.class.message}</small>}
                             <button type="submit">Gửi</button>
                         </form>
                     </div>

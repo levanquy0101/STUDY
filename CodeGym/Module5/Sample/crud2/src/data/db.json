@@ -1,24 +1,24 @@
 {
   "students": [
     {
+      "id": "10",
       "code": "S001",
       "name": "Thanh Thy",
-      "age": "19",
-      "gender": "Nữ",
+      "age": "18",
+      "gender": "Nam",
       "dateNH": "2024-01-01",
       "class": {
         "id": "2",
         "code": "C002",
         "class_name": "Lập Trình Java",
         "teacher": "Trần Văn Minh"
-      },
-      "id": "10"
+      }
     },
     {
       "code": "S002",
       "name": "Xuân Đài",
       "age": "23",
-      "gender": "Nam",
+      "gender": "Nữ",
       "dateNH": "2024-02-01",
       "class": {
         "id": "1",

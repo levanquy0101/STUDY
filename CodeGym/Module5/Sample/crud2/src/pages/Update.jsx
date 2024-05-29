@@ -9,15 +9,22 @@ import * as StudentService from '../services/StudentService';
 
 function Update(props) {
     const location = useLocation();
-    console.log(location.state)
-    const [dataUpdate, setDataUpdate] = useState(location.state);
+    const [dataUpdate, setDataUpdate] = useState({});
     const navigate = useNavigate();
     const {register, handleSubmit, setValue, errors} = useForm();
     const [classes, setClasses] = useState([]);
 
     useEffect(() => {
-        if (location.state) {
-            const { id,code, name, age, gender,dateNH, class: studentClass } = location.state;
+        try {
+            findById(location.state?.idUpdate)
+        }catch(error) {
+            console.error(error);
+        }
+    }, []);
+
+    useEffect(() => {
+        if (dataUpdate) {
+            const { id, code, name, age, gender,dateNH, class: studentClass } = dataUpdate;
             setValue('id',id)
             setValue('code', code);
             setValue('name', name);
@@ -27,15 +34,26 @@ function Update(props) {
             setValue('class', JSON.stringify(studentClass));
         }
         getAll()
-    }, []);
+    }, [dataUpdate]);
+
     const getAll =  async ()=>{
         const data = await ClassesService.getAll()
         setClasses(data);
     }
 
+    const findById = async (id) => {
+        try{
+            const data = await  StudentService.findById(id)
+            setDataUpdate(data)
+        }catch (err){
+            console.log(err)
+        }
+    }
+
     const onSubmit = async (data) => {
         try {
             data.class = JSON.parse(data.class);
+            console.log(data);
             await StudentService.update(data.id,data);
             console.log(data);
         } catch (e) {
@@ -47,11 +65,7 @@ function Update(props) {
         navigate("/")
     };
 
-    if(location.state == null) {
-        return (
-            <div>Trang lỗi</div>
-        )
-    }
+    if (!dataUpdate?.id) return <div>Không có dữ liệu cập nhật</div>;
 
     return (
         <div className='wrapper'>
@@ -71,11 +85,11 @@ function Update(props) {
                             <input {...register('gender',{required:'Không được để trống!'})} style={{display:"inline",width:"20%"}} value='Nữ' type="radio" /><span>Nữ</span>
                             <input {...register('gender',{required:'Không được để trống!'})} style={{display:"inline",width:"20%"}} value='Khác' type="radio" /><span>Khác</span>
                             <input {...register('dateNH')} type="date" placeholder='Nhập ngày nhập học' />
-                            <select {...register('class')} id="" >
+                            <select {...register('class',{required: true})} id="" >
                                 <option value="">-- Lựa chọn lớp học --</option>
                                 {
                                     classes.map((item) =>  (
-                                        <option value={JSON.stringify(item)} key={item.id} selected={item.id == dataUpdate.class.id}>{item.code}</option>
+                                        <option value={JSON.stringify(item)} key={item.id} selected={item.id === dataUpdate.class.id}>{item.code}</option>
                                     ))
                                 }
                             </select>
