@@ -4,6 +4,7 @@ import {useLocation, useNavigate} from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
+import { ClipLoader } from 'react-spinners';
 import * as ClassesService from '../services/ClassesService';
 import * as StudentService from '../services/StudentService';
 
@@ -23,6 +24,7 @@ function Update(props) {
     }, []);
 
     useEffect(() => {
+        console.log(dataUpdate)
         if (dataUpdate) {
             const { id, code, name, age, gender,dateNH, class: studentClass } = dataUpdate;
             setValue('id',id)
@@ -65,7 +67,11 @@ function Update(props) {
         navigate("/")
     };
 
-    if (!dataUpdate?.id) return <div>Không có dữ liệu cập nhật</div>;
+    if (!dataUpdate?.id) return (
+        <div style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+          <ClipLoader color={"#123abc"} loading={true} size={150} />
+        </div>
+      );
 
     return (
         <div className='wrapper'>

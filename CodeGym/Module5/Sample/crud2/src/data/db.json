@@ -83,6 +83,20 @@
         "teacher": "Nguyễn Xuân Tùng"
       },
       "id": "UmT0BxS"
+    },
+    {
+      "code": "S003",
+      "name": "Hoàng Gia",
+      "age": "22",
+      "gender": "Nam",
+      "dateNH": "2024-05-30",
+      "class": {
+        "id": "2",
+        "code": "C002",
+        "class_name": "Lập Trình Java",
+        "teacher": "Trần Văn Minh"
+      },
+      "id": "XlvC37t"
     }
   ],
   "classes": [
