@@ -9,12 +9,12 @@ const usePagination = (data, itemsPerPage) => {
         setKey((prevKey) => prevKey + 1); // Reset key to trigger re-render
     }, [data]);
 
-    const totalPages = Math.ceil(data.length / itemsPerPage);
+    const totalPages = Math.ceil(data?.length / itemsPerPage);
 
     const currentData = () => {
         const begin = (currentPage - 1) * itemsPerPage;
         const end = begin + itemsPerPage;
-        return data.slice(begin, end);
+        return data?.slice(begin, end);
     };
 
     const next = () => {
@@ -44,7 +44,7 @@ const CustomTable = ({ data, itemsPerPage, columns }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {currentData().map((row, index) => (
+                    {currentData()?.map((row, index) => (
                         <tr key={row.id}>
                             <td>{(currentPage - 1) * itemsPerPage + index + 1}</td>
                             {columns.map((column) => (
@@ -54,6 +54,7 @@ const CustomTable = ({ data, itemsPerPage, columns }) => {
                     ))}
                 </tbody>
             </table>
+            {data?.length === 0 && <p style={{textAlign: "center"}}>Không có dữ liệu</p>}
             <div>
                 {totalPages > 1 && (
                     <div>

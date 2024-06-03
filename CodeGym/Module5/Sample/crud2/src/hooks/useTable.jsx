@@ -54,6 +54,8 @@ const CustomTable = ({ data, itemsPerPage, columns }) => {
                     ))}
                 </tbody>
             </table>
+            {data.length === 0 && <p style={{textAlign: "center"}}>Không có kết quả</p>}
+            {console.log(data) }
             <div>
                 {totalPages > 1 && (
                     <div>
